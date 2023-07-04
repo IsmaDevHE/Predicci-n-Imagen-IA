@@ -24,4 +24,9 @@ window.addEventListener('DOMContentLoaded', () => {
             previewImage.setAttribute('src', '#');
         }
     });
+
+    
+
+
+
 });

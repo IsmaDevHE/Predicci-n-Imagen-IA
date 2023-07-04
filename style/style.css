@@ -1,4 +1,4 @@
-*{
+*{  
     font-family: Arial, sans-serif;
     text-align: center;
     padding: 0;
@@ -47,13 +47,6 @@ body{
     padding: 20px;
 }
 
-#upload-input {
- 
-}
-
-#preview-container {
-   
-}
 
 .container-file{
     display: flex;
