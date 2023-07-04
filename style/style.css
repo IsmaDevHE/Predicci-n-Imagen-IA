@@ -7,7 +7,7 @@
 }
 
 body{
-    background-image: url('./IMAGES/AI-PNG.png');
+    background-image: url('../IMAGES/AI-PNG.png');
     background-repeat: no-repeat;
     background-position: center top;
 }
@@ -20,6 +20,7 @@ body{
     background-size: 300% 300%;
     animation: color 12s ease-in-out infinite;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
 }
@@ -35,6 +36,10 @@ body{
     }
 }
 
+#logo {
+    padding: 20px;
+}
+
 #page-title {
     color:#ffffff9d;
     text-shadow: 1px 1px 0 rgb(59, 55, 55), -1px -1px 0 rgb(136, 128, 128), 1px -1px 0 rgb(153, 143, 143), -1px 1px 0 rgb(163, 153, 153); /* Agrega un sombreado a cada letra */
@@ -43,12 +48,8 @@ body{
     font-size: 35px;
 }
 
-#logo {
-    padding: 20px;
-}
-
-
 .container-file{
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content:center;
@@ -59,4 +60,36 @@ body{
     max-width: 400px;
     max-height: 400px;
     margin-top: 10px;
+    border-radius: 5px;
+}
+
+/* style 2 */
+
+.container-input{
+    background: linear-gradient(45deg,#e7072136,#7462ff,#f48e21);
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 auto 0;
+    min-height: 15px;
+    overflow: hidden;
+    padding: 10px;
+    position: relative;
+    text-align: center;
+    width: 400px;
+    border-radius: 10px;
+}
+
+.container-input .input-file {
+    border: 10000px solid transparent;
+    cursor: pointer;
+    font-size: 10000px;
+    margin: 0;
+    opacity: 0;
+    outline: 0 none;
+    padding: 0;
+    position: absolute;
+    right: -1000px;
+    top: -1000px;
 }

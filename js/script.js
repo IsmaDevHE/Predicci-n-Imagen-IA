@@ -11,7 +11,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
         if (file) {
             const reader = new FileReader();
-
             reader.addEventListener('load', (event) => {
                 const containerPreview = document.querySelector('.container-preview');
                 containerPreview.innerHTML = `
