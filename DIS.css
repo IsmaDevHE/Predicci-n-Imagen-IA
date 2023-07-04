@@ -30,7 +30,7 @@
 #page-title {
     margin-top: 20px;
     color:#ffffff9d;
-    text-shadow: 1px 1px 0 rgb(129, 122, 122), -1px -1px 0 rgb(136, 128, 128), 1px -1px 0 rgb(153, 143, 143), -1px 1px 0 rgb(163, 153, 153); /* Agrega un sombreado a cada letra */
+    text-shadow: 1px 1px 0 rgb(59, 55, 55), -1px -1px 0 rgb(136, 128, 128), 1px -1px 0 rgb(153, 143, 143), -1px 1px 0 rgb(163, 153, 153); /* Agrega un sombreado a cada letra */
     border-radius: 10%;
     border-color: rgb(24, 23, 23);
     font-size: 35px;
