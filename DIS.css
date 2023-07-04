@@ -4,16 +4,24 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-
 }
 
-#background {
+body{
+    background-image: url('./IMAGES/AI-PNG.png');
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+
+.container {
     height: 100vh;
-    width: 100%;
+    width: 100vw;
     position: fixed;
     background: linear-gradient(45deg,#e7072136,#7462ff,#f48e21);
     background-size: 300% 300%;
     animation: color 12s ease-in-out infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 @keyframes color {
     0%{
@@ -28,7 +36,6 @@
 }
 
 #page-title {
-    margin-top: 20px;
     color:#ffffff9d;
     text-shadow: 1px 1px 0 rgb(59, 55, 55), -1px -1px 0 rgb(136, 128, 128), 1px -1px 0 rgb(153, 143, 143), -1px 1px 0 rgb(163, 153, 153); /* Agrega un sombreado a cada letra */
     border-radius: 10%;
@@ -37,15 +44,22 @@
 }
 
 #logo {
-    margin-top: 20px;
+    padding: 20px;
 }
 
 #upload-input {
-    margin-top: 20px;
+ 
 }
 
 #preview-container {
-    margin-top: 20px;
+   
+}
+
+.container-file{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-content: center;
 }
 
 #preview-image {

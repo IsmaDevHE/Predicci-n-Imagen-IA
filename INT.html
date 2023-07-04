@@ -6,26 +6,26 @@
 </head>
 <body>
     
-    <div id="background">
-
-        <h1 id="page-title">Prediccion de Imagen</h1>
-
+    <div class="container" id="background">  
         <div id="logo">
-            <img src="IMAGES/AI-PNG.png" alt="Logo de tu página">
+            <h1 id="page-title">Prediccion de Imagen</h1>
         </div>
 
-        <div id="upload-input">
-            <input type="file" id="file-input" accept="image/*">
-        </div>
+        <input type="file" id="file-input" accept="image/*">
 
-        <div id="preview-container">
+        <div class="container-file" id="upload-input">
             <h3>Imagen seleccionada:</h3>
-            <img id="preview-image" src="#" alt="Vista previa de la imagen">
+            <div class="container-preview" id="preview-container">
+                <!-- Solo se muestra la imagen en caso de que haya un cambio en el input -->
+                <!-- <img id="preview-image" src="#" alt="Vista previa de la imagen"> -->
+            </div>
         </div>
 
-        <script src="JS.js"></script>
-
+        <div class="result">
+            <h2>Aca ira una tabla con los resultados que entrega el modelo</h2>
+        </div>
     </div>
-    
+
+    <script src="JS.js"></script>=
 </body>
 </html>

@@ -1,5 +1,9 @@
+// MODELO predice -> si es polera, pantalon, poleron, gorro, zapatilla o etc.
+// En base a ese resultado vamos a buscar los primeros links a amason que coincidan con el tipo de prenda
+
+
 window.addEventListener('DOMContentLoaded', () => {
-    const fileInput = document.getElementById('file-input');
+    const fileInput    = document.getElementById('file-input');
     const previewImage = document.getElementById('preview-image');
 
     fileInput.addEventListener('change', (event) => {
@@ -9,7 +13,10 @@ window.addEventListener('DOMContentLoaded', () => {
             const reader = new FileReader();
 
             reader.addEventListener('load', (event) => {
-                previewImage.setAttribute('src', event.target.result);
+                const containerPreview = document.querySelector('.container-preview');
+                containerPreview.innerHTML = `
+                    <img id="preview-image" src="${event.target.result}" alt="Vista previa de la imagen">
+                `
             });
 
             reader.readAsDataURL(file);
