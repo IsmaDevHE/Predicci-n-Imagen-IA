@@ -3,6 +3,7 @@
 - Estudiantes: Sebastian Valenzuela Ramirez - Ismael Herrada Escudero.
 
 El siguiente proyecto consta en una simple página web en la cual se debe ingresar la imagen de una prenda de ropa y ayudado de un modelo creado con inteligencia artificial va a determinar a qué tipo de prenda corresponde.
+Se dejo adjunto un folder 'imagenesPruebaModelo' con imagenes para que el modelo sea testeado.
 
 | Numero  | Label |
 | ------- | ----------- |
