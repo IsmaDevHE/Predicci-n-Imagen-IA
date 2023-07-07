@@ -1,29 +1,15 @@
-// MODELO predice -> si es polera, pantalon, poleron, gorro, zapatilla o etc.
-// En base a ese resultado vamos a buscar los primeros links a amason que coincidan con el tipo de prenda
+const clases = ['T-Shirt',
+                'Trouser',
+                'Pullover',
+                'Dress',
+                'Coat',
+                'Sandalias',
+                'Shirt',
+                'Sneaker',
+                'Bag',
+                'Ankle boot'
+            ]
 
-/* 
-window.addEventListener('DOMContentLoaded', () => {
-    const fileInput    = document.getElementById('file-input');
-    const previewImage = document.getElementById('preview-image');
-
-    fileInput.addEventListener('change', (event) => {
-        const file = event.target.files[0];
-
-        if (file) {
-            const reader = new FileReader();
-            reader.addEventListener('load', (event) => {
-                const containerPreview = document.querySelector('.container-preview');
-                containerPreview.innerHTML = `
-                    <img id="preview-image" src="${event.target.result}" alt="Vista previa de la imagen">
-                `
-            });
-
-            reader.readAsDataURL(file);
-        } else {
-            previewImage.setAttribute('src', '#');
-        }
-    });
-}); */
 
 
 // Función para cargar y utilizar el modelo
@@ -33,7 +19,6 @@ async function predictImage(file) {
   const modelConfig = model;
   //const classLabels = modelConfig.classNames;
   console.log("Modelo Cargado");
-  console.log(modelConfig);
 
   // Leer la imagen seleccionada
   const img    = new Image();
@@ -55,12 +40,13 @@ async function predictImage(file) {
       const predictedClassIndex = tf.argMax(predictionData).dataSync()[0];
 
       // Mostrar el resultado
-      console.log('Clase predicha:', predictedClassIndex);
+      console.log('Clase predicha:', clases[predictedClassIndex]);
       	
-      const data = getProductByName('')
+
+      const data = await getProductByName(clases[predictedClassIndex])
 
       // Insertamos la data en el html
-      // InsertDatainHTML()
+      await InsertDatainHTML(data)
 
     };
   };
@@ -108,8 +94,6 @@ function preprocessImage(image) {
   return normalizedImage;
 }
 
-
-
 // Manejar el evento de cambio de archivo
 document.getElementById('file-input').addEventListener('change', function(event) {
   // Obtener el archivo seleccionado
@@ -126,16 +110,40 @@ document.getElementById('file-input').addEventListener('change', function(event)
   };
 });
 
+
+// Cargar de forma local los datos desde el archivo
+async function setData(){
+  const url  = '../db/amazon.json'; 
+  const resp = await fetch(url);
+  const data = await resp.json(); 
+  return data
+}
 // Funcion para obtener los productos de amason
 async function getProductByName(name){
   // Consultamos al json
-  //const product = await 
+  const products = await setData();
   // Filtramos solo aquellos que en sus nombres tengan caracteres que coincidan con el nombre que predice el modelo
+  const productsFiltered = products.data.filter(product => {
+    return product.name.includes(name);
+  })
 
-  return 'productFiltered';
+  return productsFiltered;
 } 
 
+async function InsertDatainHTML(data = []){
+  const bodyTable = document.querySelector('.table-body');
+  bodyTable.innerHTML = '';
 
-function InsertDatainHTML(data){
-  // Se hace todo el proceso de nsertar los datos en el DOM
+  console.log(data)
+  data.forEach(data => {
+    const content = `
+    <tr>
+        <td>${data.name}</td>
+        <td>${data.marca}</td>
+        <td>${data.price}</td>
+        <td><a href="${data.url}">Ir a Página</a></td>
+      </tr>  
+    `
+    bodyTable.innerHTML += content;
+  }) 
 }
