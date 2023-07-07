@@ -93,9 +93,10 @@ document.getElementById('file-input').addEventListener('change', function(event)
   // Obtener el archivo seleccionado
   const file = event.target.files[0];
   if (file) {
+    const imageURL = URL.createObjectURL(file)
     const containerPreview     = document.querySelector('.container-preview');
     containerPreview.innerHTML = `
-            <img id="preview-image" src="../IMAGES/imagenesPruebaModelo/${file.name}" alt="Vista previa de la imagen">
+            <img id="preview-image" src="${imageURL}" alt="Vista previa de la imagen">
         `
     predictImage(file); // Predecir la imagen
   };
