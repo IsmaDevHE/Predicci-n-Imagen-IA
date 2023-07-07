@@ -20,7 +20,7 @@ Posterior a eso, una vez el modelo determina que prenda es, se pone a disposici�
 Para ejecutar el proyecto se recomienda tener instalado ‘Visual Studio Code’ y su extensión ‘Live Server’
 
 Luego posicionados en el fichero index.html se debe hacer click derecho y dar inicio al servidor en vivo de la siguiente manera:
-![Iniciar Proyecto con Live Server](/IMAGES/LiveServer.jpg){ width=300 height=180 }
+![Iniciar Proyecto con Live Server](/IMAGES/LiveServer.jpg)
 
 Eso da inicio a la página web de forma local.
 ![Pagina Web](/IMAGES/mainpage.jpg){ width=500 height=210 }
@@ -28,9 +28,8 @@ Eso da inicio a la página web de forma local.
 
 ## Modelo
 El modelo fue creado con el dataset proporcionado por tensorflow Fashion-MNIST, que es un conjunto de datos de imágenes en las cuales 60000 son de entrenamiento y 10000 de prueba. Cada ejemplo es una imagen en escala de grises de 28x28, asociada con una etiqueta de 10 clases.
-```markdown
+
 [Dataset](https://www.tensorflow.org/datasets/catalog/fashion_mnist?hl=es-419)
-```
 
 El modelo consta de un formato de imagenes de este modo:
 
