@@ -1,6 +1,6 @@
 # Clasificación de prendas
-Docente: Jorge Alexis Castillo Sepúlveda, PhD & Math.Eng.
-Estudiantes: Sebastian Valenzuela Ramirez - Ismael Herrada Escudero.
+- Docente: Jorge Alexis Castillo Sepúlveda, PhD & Math.Eng.
+- Estudiantes: Sebastian Valenzuela Ramirez - Ismael Herrada Escudero.
 
 El siguiente proyecto consta en una simple página web en la cual se debe ingresar la imagen de una prenda de ropa y ayudado de un modelo creado con inteligencia artificial va a determinar a qué tipo de prenda corresponde.
 
