@@ -95,7 +95,7 @@ document.getElementById('file-input').addEventListener('change', function(event)
   if (file) {
     const containerPreview     = document.querySelector('.container-preview');
     containerPreview.innerHTML = `
-            <img id="preview-image" src="../IMAGES/Test/${file.name}" alt="Vista previa de la imagen">
+            <img id="preview-image" src="../IMAGES/imagenesPruebaModelo/${file.name}" alt="Vista previa de la imagen">
         `
     predictImage(file); // Predecir la imagen
   };
