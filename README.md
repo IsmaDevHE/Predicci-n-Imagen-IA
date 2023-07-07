@@ -20,19 +20,18 @@ Posterior a eso, una vez el modelo determina que prenda es, se pone a disposici�
 Para ejecutar el proyecto se recomienda tener instalado ‘Visual Studio Code’ y su extensión ‘Live Server’
 
 Luego posicionados en el fichero index.html se debe hacer click derecho y dar inicio al servidor en vivo de la siguiente manera:
+###
 ![Iniciar Proyecto con Live Server](/IMAGES/LiveServer.jpg)
+###
 
 Eso da inicio a la página web de forma local.
-![Pagina Web](/IMAGES/mainpage.jpg){ width=500 height=210 }
-
+![Pagina Web](/IMAGES/mainpage.jpg)
 
 ## Modelo
-El modelo fue creado con el dataset proporcionado por tensorflow Fashion-MNIST, que es un conjunto de datos de imágenes en las cuales 60000 son de entrenamiento y 10000 de prueba. Cada ejemplo es una imagen en escala de grises de 28x28, asociada con una etiqueta de 10 clases.
-
-[Dataset](https://www.tensorflow.org/datasets/catalog/fashion_mnist?hl=es-419)
+El modelo fue creado con el dataset proporcionado por tensorflow Fashion-MNIST, que es un conjunto de datos de imágenes en las cuales 60000 son de entrenamiento y 10000 de prueba. Cada ejemplo es una imagen en escala de grises de 28x28, asociada con una etiqueta de 10 clases. [Pagina del Dataset](https://www.tensorflow.org/datasets/catalog/fashion_mnist?hl=es-419)
 
 El modelo consta de un formato de imagenes de este modo:
-
+###
 ![Pagina Web](/IMAGES/imagenesReadme.jpg)
 
 Para el modelo se utilizó una estructura de Red Neuronal Convolucional en el cual se adapto de la siguiente forma:
@@ -106,3 +105,7 @@ Para hacer la predicción desde javascript se debe ajustar la imagen de tal form
       const predictedClassIndex = tf.argMax(predictionData).dataSync()[0];
 ```
 
+## ¿Que se puede mejorar?
+Para empezar el dataset utilizado para la creacion del modelo tiene solo imagenes 28 x 28 en escalado de grises, por lo que al hacer la implementacion en una plataforma web, puede ser que falle en algunas predicciones por la imagen que se le sube.
+Para mejorar este proyecto se podria optar por usar un dataset con imagenes a color y asi no discriminaria la imagen que pueda ser subida para predecir.
+Sin embargo, el modelo quedo con un porcentaje de acierto bastante alto. Gracias a todos los parametros utilizados que fueron enseñados en clases el modelo final usando una Red Neuronal Convolucional logra predecir con exito la imagen de la prenda que se le ingrese, siempre y cuando esta cumpla con el formato adecuado.
