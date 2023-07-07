@@ -7,13 +7,12 @@ const clases = ['T-Shirt',
                 'Shirt',
                 'Sneaker',
                 'Bag',
-                'Ankle boot'
+                'Ankle Boot'
             ]
 // Función para cargar y utilizar el modelo
 async function predictImage(file) {
   // Cargar el modelo desde la URL
   const model       = await tf.loadLayersModel('modelo/model.json');
-  const modelConfig = model;
   //const classLabels = modelConfig.classNames;
   console.log("Modelo Cargado");
 
@@ -93,7 +92,6 @@ function preprocessImage(image) {
 document.getElementById('file-input').addEventListener('change', function(event) {
   // Obtener el archivo seleccionado
   const file = event.target.files[0];
-  console.log(file)
   if (file) {
     const containerPreview     = document.querySelector('.container-preview');
     containerPreview.innerHTML = `
@@ -126,7 +124,6 @@ async function getProductByName(name){
 async function InsertDatainHTML(data = []){
   const bodyTable     = document.querySelector('.table-body');
   bodyTable.innerHTML = '';
-  console.log(data)
   
   data.forEach(data => {
     const content = `
