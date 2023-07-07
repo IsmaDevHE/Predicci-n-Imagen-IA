@@ -9,13 +9,10 @@ const clases = ['T-Shirt',
                 'Bag',
                 'Ankle boot'
             ]
-
-
-
 // Función para cargar y utilizar el modelo
 async function predictImage(file) {
   // Cargar el modelo desde la URL
-  const model = await tf.loadLayersModel('modelo/model.json');
+  const model       = await tf.loadLayersModel('modelo/model.json');
   const modelConfig = model;
   //const classLabels = modelConfig.classNames;
   console.log("Modelo Cargado");
@@ -25,7 +22,7 @@ async function predictImage(file) {
   const reader = new FileReader();
 
   reader.onload = function(e) {
-    img.src = e.target.result;
+    img.src    = e.target.result;
     img.onload = async function(){
       // Preprocesar la imagen (ajustar el tamaño y normalizar los valores)
       const processedImg = preprocessImage(img);
@@ -42,12 +39,10 @@ async function predictImage(file) {
       // Mostrar el resultado
       console.log('Clase predicha:', clases[predictedClassIndex]);
       	
-
       const data = await getProductByName(clases[predictedClassIndex])
 
       // Insertamos la data en el html
       await InsertDatainHTML(data)
-
     };
   };
   reader.readAsDataURL(file)
@@ -56,16 +51,16 @@ async function predictImage(file) {
 
 // Función para preprocesar la imagen (ajustar tamaño, convertir a escala de grises y normalizar valores)
 function preprocessImage(image) {
-  // Redimensionar la imagen a 28x28 píxeles
-  const canvas = document.createElement('canvas');
-  const context = canvas.getContext('2d');
-  canvas.width = 28;
+    // Redimensionar la imagen a 28x28 píxeles
+  const canvas        = document.createElement('canvas');
+  const context       = canvas.getContext('2d');
+  canvas.width  = 28;
   canvas.height = 28;
   context.drawImage(image, 0, 0, 28, 28);
 
   // Obtener los datos de píxeles de la imagen redimensionada
   const imageData = context.getImageData(0, 0, 28, 28);
-  const data = imageData.data;
+  const data      = imageData.data;
 
   // Convertir la imagen a escala de grises
   const grayData = new Uint8ClampedArray(28 * 28);
@@ -100,13 +95,11 @@ document.getElementById('file-input').addEventListener('change', function(event)
   const file = event.target.files[0];
   console.log(file)
   if (file) {
-    const containerPreview = document.querySelector('.container-preview');
-        containerPreview.innerHTML = `
+    const containerPreview     = document.querySelector('.container-preview');
+    containerPreview.innerHTML = `
             <img id="preview-image" src="../IMAGES/Test/${file.name}" alt="Vista previa de la imagen">
         `
-        
-    // Predecir la imagen
-    predictImage(file);
+    predictImage(file); // Predecir la imagen
   };
 });
 
@@ -122,7 +115,7 @@ async function setData(){
 async function getProductByName(name){
   // Consultamos al json
   const products = await setData();
-  // Filtramos solo aquellos que en sus nombres tengan caracteres que coincidan con el nombre que predice el modelo
+  // Filtramos solo aquellos que en sus nombres tengan alguna palabra que coincida con el nombre que predice el modelo
   const productsFiltered = products.data.filter(product => {
     return product.name.includes(name);
   })
@@ -131,10 +124,10 @@ async function getProductByName(name){
 } 
 
 async function InsertDatainHTML(data = []){
-  const bodyTable = document.querySelector('.table-body');
+  const bodyTable     = document.querySelector('.table-body');
   bodyTable.innerHTML = '';
-
   console.log(data)
+  
   data.forEach(data => {
     const content = `
     <tr>
